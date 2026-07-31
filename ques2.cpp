@@ -53,6 +53,8 @@ int main(){
     c2.add(c1);
     c3.add(c1,c2);
     c3.show();
-    complex q=c1.add2(5,42);
+    Complex q=c1.add2(5,42);
+    q.show();
+
 
 }
