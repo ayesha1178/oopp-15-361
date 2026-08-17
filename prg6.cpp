@@ -1,51 +1,48 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-class Demo
-{
+class Laptop {
 private:
-    int value;
+    string brand;
+    int ram;
 
 public:
-    Demo()
-    {
-        value = 0;
-        cout << "Default Constructor Called" << endl;
+    Laptop() {
+        brand = "Unknown";
+        ram = 0;
+        cout << "Default Constructor Called\n";
     }
 
-    Demo(int v)
-    {
-        value = v;
-        cout << "Parameterized Constructor Called" << endl;
-    }
- 
-    Demo(const Demo &obj)
-    {
-        value = obj.value;
-        cout << "Copy Constructor Called" << endl;
+    Laptop(string b, int r) {
+        brand = b;
+        ram = r;
+        cout << "Parameterized Constructor Called\n";
     }
 
-    ~Demo()
-    {
-        cout << "Destructor Called for value = " << value << endl;
+    Laptop(const Laptop &l) {
+        brand = l.brand;
+        ram = l.ram;
+        cout << "Copy Constructor Called\n";
     }
 
-    void display()
-    {
-        cout << "Value = " << value << endl;
+    void display() {
+        cout << "Brand: " << brand
+             << "\nRAM: " << ram << " GB\n";
+    }
+
+    ~Laptop() {
+        cout << "Destructor Called for " << brand << endl;
     }
 };
 
-int main()
-{
-    Demo obj1;
-    obj1.display();
+int main() {
+    Laptop l1;
+    Laptop l2("Dell", 16);
+    Laptop l3 = l2;
 
-    Demo obj2(100);
-    obj2.display();
-
-    Demo obj3 = obj2;
-    obj3.display();
+    l1.display();
+    l2.display();
+    l3.display();
 
     return 0;
 }
