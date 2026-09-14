@@ -6,10 +6,14 @@ class point
     int x,y; 
 public:
     point(int x=0,int y=0):x{x},y{y}{}
-
+    point operator+(point p,int x)
+    {
+        return point(p.x+x,p.y+x);
+    }
     friend ostream &operator<<(ostream &os,point p);
 
     friend point operator+(point p1,point p2);
+   
 };
     point operator+(point p1,point p2)
     {
@@ -30,5 +34,7 @@ int main()
     point r=p+q;
     cout<<r;
     cout<<p<<q<<r;  //method chaining 
+    point s=p+5;  // adding integer to point object using operator overloading
+    cout<<s;
     return 0;
 }
